@@ -12,3 +12,14 @@
     color: #00ffff; /* Futuristic blue color on hover */
     text-decoration: underline;
 }
+
+.footer-logo {
+    height: 50px; /* Adjust the height as needed */
+    margin-bottom: 20px; /* Add margin to the bottom */
+}
+
+.list-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

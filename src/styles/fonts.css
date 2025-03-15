@@ -11,3 +11,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'ShackleRegular';
+    src: url('../assets/fonts/shackle-font/ShackleRegular-ALvV7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
