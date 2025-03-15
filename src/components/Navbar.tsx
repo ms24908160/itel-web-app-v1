@@ -19,26 +19,18 @@ const Navbar: React.FC = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav mx-auto">
-                    {location.pathname !== '/' && (
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">Home</a>
-                        </li>
-                    )}
-                    {location.pathname !== '/test-case-generation' && (
-                        <li className="nav-item">
-                            <a className="nav-link" href="/test-case-generation">Test Case Generation</a>
-                        </li>
-                    )}
-                    {location.pathname !== '/test-case-templates' && (
-                        <li className="nav-item">
-                            <a className="nav-link" href="/test-case-templates">Test Case Templates</a>
-                        </li>
-                    )}
-                    {location.pathname !== '/quality-assurance-knowledge' && (
-                        <li className="nav-item">
-                            <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
-                        </li>
-                    )}
+                    <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+                        <a className="nav-link" href="/">Home</a>
+                    </li>
+                    <li className={`nav-item ${location.pathname === '/test-case-generation' ? 'active' : ''}`}>
+                        <a className="nav-link" href="/test-case-generation">Test Case Generation</a>
+                    </li>
+                    <li className={`nav-item ${location.pathname === '/test-case-templates' ? 'active' : ''}`}>
+                        <a className="nav-link" href="/test-case-templates">Test Case Templates</a>
+                    </li>
+                    <li className={`nav-item ${location.pathname === '/quality-assurance-knowledge' ? 'active' : ''}`}>
+                        <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
+                    </li>
                 </ul>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">

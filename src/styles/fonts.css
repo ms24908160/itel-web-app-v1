@@ -4,3 +4,10 @@
     font-weight: normal;
     font-style: italic;
 }
+
+@font-face {
+    font-family: 'Exo2';
+    src: url('../assets/fonts/Exo_2/Exo2-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

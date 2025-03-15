@@ -4,8 +4,26 @@
 
 .navbar-dark .navbar-nav .nav-link {
     color: #ffffff; /* White color for the links */
+    font-family: 'Exo2', sans-serif; /* Use custom font */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #00ffff; /* Futuristic blue color on hover */
+    color: #ebc107; /* Futuristic blue color on hover */
+}
+
+.navbar-dark .navbar-nav .nav-item.active .nav-link {
+    color: #d2ff08; /* Futuristicluminous green color for active link */
+    transform: scale(1.3); /* Increase the size */
+    font-weight: bold; /* Make the active link bold */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px; /* Add some spacing between nav items */
 }
