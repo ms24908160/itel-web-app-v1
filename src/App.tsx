@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ExampleComponent from './components/ExampleComponent';
+import TestCaseGenerationPage from './pages/TestCaseGenerationPage';
+import TestCaseTemplatesPage from './pages/TestCaseTemplatesPage';
+import QualityAssuranceKnowledgePage from './pages/QualityAssuranceKnowledgePage';
 import './styles/App.css';
 
 const App: React.FC = () => {
@@ -10,7 +12,9 @@ const App: React.FC = () => {
       <div className="App">
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/example" component={ExampleComponent} />
+          <Route path="/test-case-generation" component={TestCaseGenerationPage} />
+          <Route path="/test-case-templates" component={TestCaseTemplatesPage} />
+          <Route path="/quality-assurance-knowledge" component={QualityAssuranceKnowledgePage} />
         </Switch>
       </div>
     </Router>
