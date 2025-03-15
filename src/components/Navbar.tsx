@@ -4,6 +4,7 @@ import logo from '../assets/images/logo_500x499.png';
 import '../styles/navbar.css';
 import '../styles/fonts.css'; // Import the fonts.css file
 import { useLocation } from 'react-router-dom';
+import accountIcon from '../assets/images/account.png'; // Import the account icon
 
 const Navbar: React.FC = () => {
     const location = useLocation();
@@ -41,7 +42,9 @@ const Navbar: React.FC = () => {
                 </ul>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="/profile">Profile</a>
+                        <a className="nav-link" href="/signin">
+                            <img src={accountIcon} alt="Account" style={{ height: '36px', width: '36px' }} />
+                        </a>
                     </li>
                 </ul>
             </div>
