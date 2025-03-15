@@ -1,14 +1,15 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Update with your backend URL
+const API_BASE_URL = 'http://your-api-url.com';
 
 // Function to handle user authentication
+// @ts-ignore
 export const authenticateUser = async (credentials) => {
     try {
         const response = await axios.post(`${API_BASE_URL}/auth/login`, credentials);
         return response.data;
     } catch (error) {
-        throw error.response.data;
+        throw new Error('Authentication failed');
     }
 };
 

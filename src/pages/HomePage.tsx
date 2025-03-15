@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
                 <p>This application helps you generate and manage test cases efficiently.</p>
             </header>
             <main className="container">
-                <ExampleComponent title="Sample Title" description="Sample Description" />
+                
             </main>
         </div>
     );
