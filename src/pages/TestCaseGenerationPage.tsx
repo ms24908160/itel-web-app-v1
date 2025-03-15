@@ -1,11 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from '../assets/images/logo_500x499.png';
 
 const TestCaseGenerationPage: React.FC = () => {
     return (
         <div className="test-case-generation-page">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="/">Logo</a>
+            <a className="navbar-brand" href="/">
+                    <img src={logo} alt="Logo" style={{ height: '150px', width: 'auto' }} />
+                </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
