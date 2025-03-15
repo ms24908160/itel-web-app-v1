@@ -1,7 +1,7 @@
 import React from 'react';
 import withFooter from '../components/withFooter';
 import '../styles/global.css'; // Import the global CSS file
-import '../styles/homepage.css'; // Import the homepage CSS file
+import '../styles/HomePage.css'; // Import the homepage CSS file
 
 const HomePage: React.FC = () => {
     return (
