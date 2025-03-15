@@ -20,9 +20,6 @@ const QualityAssuranceKnowledgePage: React.FC = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="/test-case-templates">Test Case Templates</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
-                        </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">

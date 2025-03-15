@@ -18,9 +18,6 @@ const TestCaseTemplatesPage: React.FC = () => {
                             <a className="nav-link" href="/test-case-generation">Test Case Generation</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/test-case-templates">Test Case Templates</a>
-                        </li>
-                        <li className="nav-item">
                             <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
                         </li>
                     </ul>

@@ -1,5 +1,5 @@
 {
-  "name": "my-react-web-app",
+  "name": "itel-web-app-v1",
   "version": "1.0.0",
   "description": "A web application for test case generation and management.",
   "main": "src/index.tsx",
