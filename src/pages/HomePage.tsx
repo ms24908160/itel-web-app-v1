@@ -23,6 +23,8 @@ const HomePage: React.FC = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
                         </li>
+                    </ul>
+                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a className="nav-link" href="/profile">Profile</a>
                         </li>
