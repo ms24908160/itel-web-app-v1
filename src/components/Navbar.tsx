@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../assets/images/logo_500x499.png';
 import '../styles/navbar.css';
+import '../styles/fonts.css'; // Import the fonts.css file
 import { useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
@@ -9,8 +10,8 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
-            <a className="navbar-brand" href="/">
-                <img src={logo} alt="Logo" style={{ height: '40px', width: 'auto' }} />
+            <a className="navbar-brand" href="/" style={{ fontFamily: 'ShackleItalic', fontSize: '36px', marginLeft: '10px' }}>
+                iTEL
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
