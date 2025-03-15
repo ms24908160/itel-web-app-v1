@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
-            <a className="navbar-brand" href="/" style={{ fontFamily: 'ShackleItalic', fontSize: '36px', marginLeft: '10px' }}>
+            <a className="navbar-brand" href="/" style={{ fontFamily: 'ShackleItalic', fontSize: '36px',marginRight: '10px', marginLeft: '10px' }}>
                 iTEL
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
