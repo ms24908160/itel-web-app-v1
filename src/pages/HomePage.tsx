@@ -1,5 +1,4 @@
 import React from 'react';
-import ExampleComponent from '../components/ExampleComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage: React.FC = () => {
@@ -11,7 +10,7 @@ const HomePage: React.FC = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
                             <a className="nav-link" href="/">Home</a>
                         </li>
@@ -24,8 +23,6 @@ const HomePage: React.FC = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="/quality-assurance-knowledge">Quality Assurance Knowledge</a>
                         </li>
-                    </ul>
-                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a className="nav-link" href="/profile">Profile</a>
                         </li>
@@ -37,7 +34,7 @@ const HomePage: React.FC = () => {
                 <p>This application helps you generate and manage test cases efficiently.</p>
             </header>
             <main className="container">
-                
+                {/* Main content goes here */}
             </main>
         </div>
     );
