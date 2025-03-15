@@ -1,0 +1,14 @@
+.footer {
+    background-color: #004d4d; /* Darkish teal color */
+    color: #ffffff; /* White color for the text */
+}
+
+.footer a {
+    color: #ffffff; /* White color for the links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #00ffff; /* Futuristic blue color on hover */
+    text-decoration: underline;
+}
