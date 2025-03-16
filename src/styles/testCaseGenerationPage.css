@@ -1,0 +1,58 @@
+.test-case-generation-page {
+    padding: 20px;
+}
+
+.generation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+.option:hover {
+    background-color: #d4edda; /* Light green background on hover */
+}
+
+.option-content {
+    flex: 1; /* Take up remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+.go-button {
+    background-color: #004d4d;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and transform */
+    margin-left: 20px; /* Add some space between the text and the button */
+}
+
+.go-button:hover {
+    background-color: #ffd700; /* Gold background on hover */
+    transform: scale(1.1); /* Scale up the button */
+}
+
+.option h3, .option p {
+    margin: 0;
+    text-decoration: none; /* Remove underline from text */
+    color: inherit; /* Inherit text color */
+}
+
+.option:hover h3, .option:hover p {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: inherit; /* Ensure text color remains consistent on hover */
+}
