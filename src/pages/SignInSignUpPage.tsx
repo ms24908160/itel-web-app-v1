@@ -5,6 +5,7 @@ import Login from '../components/Login';
 import '../styles/SignInSignUpPage.css';
 
 const SignInSignUpPage: React.FC = () => {
+    console.log('Rendering SignInSignUpPage');
     return (
         <div className="signin-signup-page">
             <header className="text-center my-4">
