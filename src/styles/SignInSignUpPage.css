@@ -1,0 +1,66 @@
+.signin-signup-page {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    background-image: url('../assets/images/login_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.signin-signup-page header {
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signin-signup-page header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.signin-signup-page header p {
+    font-size: 18px;
+}
+
+.signin-signup-page .container {
+    display: flex;
+    justify-content: center;
+}
+
+.signin-signup-page .row {
+    width: 100%;
+}
+
+.signin-signup-page .col-md-6 {
+    padding: 20px;
+    margin: 10px;
+}
+
+.signin-signup-page .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signin-signup-page .card-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.signin-signup-page .card-body {
+    padding: 30px;
+}
+
+.signin-signup-page .login-card {
+    background-color: #e3f2fd; /* Light blue */
+}
+
+.signin-signup-page .signup-card {
+    background-color: #e8f5e9; /* Light green */
+}
