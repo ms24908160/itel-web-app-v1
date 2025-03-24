@@ -1,0 +1,23 @@
+.signin-signup-page {
+    padding: 20px;
+}
+
+.signin-signup-page header {
+    margin-bottom: 20px;
+}
+
+.signin-signup-page .container {
+    display: flex;
+    justify-content: center;
+}
+
+.signin-signup-page .row {
+    width: 100%;
+}
+
+.signin-signup-page .col-md-6 {
+    padding: 20px;
+    border: 1px solid #6a9c85;
+    border-radius: 8px;
+    margin: 10px;
+}
