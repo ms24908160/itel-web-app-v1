@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('Test Engineer');
+  const [message, setMessage] = useState('');
 
-  const handleSignUp = (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just log the values
-    console.log('Sign Up:', { email, password, role });
-    alert('User registered successfully');
+
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/signup',
+        { email, password, role },
+        { withCredentials: true } // Include cookies in the request
+      );
+
+      setMessage(`User registered successfully as ${response.data.role}`);
+    } catch (error: any) {
+      setMessage(error.response?.data?.message || 'An error occurred');
+    }
   };
 
   return (
@@ -48,9 +59,11 @@ const SignUp: React.FC = () => {
         >
           <option value="Test Engineer">Test Engineer</option>
           <option value="Administrator">Administrator</option>
+          <option value="Observer">Observer</option>
         </select>
       </div>
       <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+      {message && <p className="mt-3 text-center">{message}</p>}
     </form>
   );
 };

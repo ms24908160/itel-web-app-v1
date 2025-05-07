@@ -64,3 +64,14 @@
 .signin-signup-page .signup-card {
     background-color: #e8f5e9; /* Light green */
 }
+/* Highlight the Sign-Up section */
+.highlight {
+    border: 2px solid #28a745; /* Green border */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Green glow */
+}
+
+/* Dim the Sign-In section */
+.dimmed {
+    opacity: 0.5;
+    pointer-events: none; /* Disable interaction */
+}
