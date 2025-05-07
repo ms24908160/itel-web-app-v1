@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/backButton.css'; // Import the CSS file for the back button
 
 const BackButton: React.FC = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleClick = () => {
-        history.push('/test-case-generation');
+        navigate('/test-case-generation'); // Navigate to the test-case-generation page
     };
 
     return (
