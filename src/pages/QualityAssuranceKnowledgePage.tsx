@@ -41,7 +41,6 @@ const QualityAssuranceKnowledgePage: React.FC = () => {
                         <li><a href="#automation-testing">🤖 Automation Testing</a></li>
                         <li><a href="#performance-testing">🚀 Performance Testing</a></li>
                         <li><a href="#resources">📚 Helpful Resources</a></li>
-                        <li><a href="#test-cases">📝 Sample Test Cases</a></li>
                     </ul>
                 </nav>
                 <section className="mb-5">
