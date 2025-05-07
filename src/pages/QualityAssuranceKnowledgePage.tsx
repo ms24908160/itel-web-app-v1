@@ -3,29 +3,29 @@ import withFooter from '../components/withFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const QualityAssuranceKnowledgePage: React.FC = () => {
-    const testCases: Record<number, string[]> = {
-        1: ["TC001", "Login with Valid Credentials", "Verify user can log in with valid username and password.", "1. Open login page\n2. Enter valid username\n3. Enter valid password\n4. Click Login", "User is redirected to dashboard with welcome message and user-specific data."],
-        2: ["TC002", "Login with Invalid Credentials", "Ensure the system rejects invalid credentials.", "1. Open login page\n2. Enter incorrect username/password\n3. Click Login", "Error message 'Invalid username or password' appears, login fails."],
-        3: ["TC003", "Password Complexity Rules", "Validate password field requires uppercase, lowercase, special character, and minimum 8 characters.", "1. Go to signup page\n2. Enter simple password (e.g., 'test')\n3. Try to submit", "Error message 'Password must meet complexity rules' is shown."],
-        4: ["TC004", "Forgot Password Functionality", "Verify email reset link is sent upon request.", "1. Click 'Forgot Password' on login page\n2. Enter registered email\n3. Click Submit", "Message 'Password reset link sent to your email' appears."],
-        5: ["TC005", "Session Timeout", "Ensure system logs out user after inactivity.", "1. Login and remain idle for 30+ mins\n2. Try to navigate or click after timeout", "Redirected to login page with message 'Session expired'."],
-        6: ["TC006", "Signup with Existing Username", "System should reject duplicate usernames during signup.", "1. Go to signup page\n2. Enter existing username\n3. Fill other details\n4. Submit", "Error 'Username already exists' shown, signup blocked."],
-        7: ["TC007", "Email Format Validation", "Ensure system validates correct email structure.", "1. Go to signup page\n2. Enter 'user@domain' or 'user@'\n3. Submit", "Error 'Invalid email format' shown."],
-        8: ["TC008", "Logout Functionality", "Check if logout correctly redirects and ends session.", "1. Login\n2. Click logout icon or button", "User is redirected to login page, session terminated."],
-        9: ["TC009", "Empty Form Submission", "System should not allow empty fields on login.", "1. Leave username and password blank\n2. Click Login", "Error messages shown for both fields: 'Username is required' and 'Password is required'."],
-        10: ["TC010", "Password Mismatch on Signup", "Ensure both password fields must match.", "1. Enter different passwords in 'Password' and 'Confirm Password'\n2. Submit form", "Error message 'Passwords do not match' appears, form not submitted."]
-    };
-    const downloadTC = (id: number) => {
+    // const testCases: Record<number, string[]> = {
+    //     1: ["TC001", "Login with Valid Credentials", "Verify user can log in with valid username and password.", "1. Open login page\n2. Enter valid username\n3. Enter valid password\n4. Click Login", "User is redirected to dashboard with welcome message and user-specific data."],
+    //     2: ["TC002", "Login with Invalid Credentials", "Ensure the system rejects invalid credentials.", "1. Open login page\n2. Enter incorrect username/password\n3. Click Login", "Error message 'Invalid username or password' appears, login fails."],
+    //     3: ["TC003", "Password Complexity Rules", "Validate password field requires uppercase, lowercase, special character, and minimum 8 characters.", "1. Go to signup page\n2. Enter simple password (e.g., 'test')\n3. Try to submit", "Error message 'Password must meet complexity rules' is shown."],
+    //     4: ["TC004", "Forgot Password Functionality", "Verify email reset link is sent upon request.", "1. Click 'Forgot Password' on login page\n2. Enter registered email\n3. Click Submit", "Message 'Password reset link sent to your email' appears."],
+    //     5: ["TC005", "Session Timeout", "Ensure system logs out user after inactivity.", "1. Login and remain idle for 30+ mins\n2. Try to navigate or click after timeout", "Redirected to login page with message 'Session expired'."],
+    //     6: ["TC006", "Signup with Existing Username", "System should reject duplicate usernames during signup.", "1. Go to signup page\n2. Enter existing username\n3. Fill other details\n4. Submit", "Error 'Username already exists' shown, signup blocked."],
+    //     7: ["TC007", "Email Format Validation", "Ensure system validates correct email structure.", "1. Go to signup page\n2. Enter 'user@domain' or 'user@'\n3. Submit", "Error 'Invalid email format' shown."],
+    //     8: ["TC008", "Logout Functionality", "Check if logout correctly redirects and ends session.", "1. Login\n2. Click logout icon or button", "User is redirected to login page, session terminated."],
+    //     9: ["TC009", "Empty Form Submission", "System should not allow empty fields on login.", "1. Leave username and password blank\n2. Click Login", "Error messages shown for both fields: 'Username is required' and 'Password is required'."],
+    //     10: ["TC010", "Password Mismatch on Signup", "Ensure both password fields must match.", "1. Enter different passwords in 'Password' and 'Confirm Password'\n2. Submit form", "Error message 'Passwords do not match' appears, form not submitted."]
+    // };
+    // const downloadTC = (id: number) => {
        
-        const data = testCases[id];
-        const csv = ["Test Case ID,Title,Description,Steps,Expected Result", data.join(',')].join('\n');
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.setAttribute('href', url);
-        link.setAttribute('download', `${data[0]}_Test_Case.csv`);
-        link.click();
-    };
+    //     const data = testCases[id];
+    //     const csv = ["Test Case ID,Title,Description,Steps,Expected Result", data.join(',')].join('\n');
+    //     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    //     const url = URL.createObjectURL(blob);
+    //     const link = document.createElement('a');
+    //     link.setAttribute('href', url);
+    //     link.setAttribute('download', `${data[0]}_Test_Case.csv`);
+    //     link.click();
+    // };
 
     return (
         <div className="quality-assurance-knowledge-page">
@@ -354,7 +354,7 @@ public void loginTest() {
   </ul>
 </section>
 
-                <section className="mb-5">
+                {/* <section className="mb-5">
                     <h2 id="test-cases" className="mt-5">📝 Download Beginner-Friendly Test Cases</h2>
                     <p>Click each button to download a detailed, beginner-friendly test case for a specific functionality.</p>
                     <div className="row">
@@ -366,7 +366,7 @@ public void loginTest() {
                             </div>
                         ))}
                     </div>
-                </section>
+                </section> */}
             </main>
         </div>
     );
