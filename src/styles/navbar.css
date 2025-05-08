@@ -93,3 +93,32 @@
 .side-nav-account {
     margin-top: auto;
 }
+.navbar-logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-logout-button:hover {
+    background-color: #c82333;
+}
+
+.navbar-login-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-login-button:hover {
+    background-color: #0056b3;
+}

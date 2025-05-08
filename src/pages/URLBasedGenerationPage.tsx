@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import withFooter from '../components/withFooter';
 import '../styles/global.css'; // Import the global CSS file
@@ -7,6 +8,30 @@ const URLBasedGenerationPage: React.FC = () => {
     const [url, setUrl] = useState('');
     const [testCases, setTestCases] = useState<string[]>([]);
     const [error, setError] = useState('');
+    const [role, setRole] = useState<string | null>(null);
+    const navigate = useNavigate();
+
+    // Check user role and redirect if unauthorized
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/signin-signup'); // Redirect to login if not logged in
+            return;
+        }
+
+        try {
+            const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+            setRole(decodedToken.role);
+
+            if (decodedToken.role !== 'Engineer' && decodedToken.role !== 'Administrator') {
+                alert('Access denied. Only Engineers and Administrators can access this page.');
+                navigate('/'); // Redirect to home page or another appropriate page
+            }
+        } catch (error) {
+            console.error('Error decoding token:', error);
+            navigate('/signin-signup'); // Redirect to login if token is invalid
+        }
+    }, [navigate]);
 
     const handleAnalyze = async () => {
         setError('');
@@ -17,10 +42,19 @@ const URLBasedGenerationPage: React.FC = () => {
             return;
         }
 
+        const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+        if (!token) {
+            setError('You must be logged in to analyze a URL.');
+            return;
+        }
+
         try {
-            const response = await fetch('http://localhost:5000/api/analyze-url', { // Updated to use full URL
+            const response = await fetch('http://localhost:5000/api/analyze-url', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+                },
                 body: JSON.stringify({ url }),
             });
 

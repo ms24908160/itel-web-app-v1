@@ -56,3 +56,51 @@
     text-decoration: none; /* Ensure no underline on hover */
     color: inherit; /* Ensure text color remains consistent on hover */
 }
+/* Floating Role Badge */
+.floating-role-badge {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    cursor: default;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.floating-role-badge:hover {
+    opacity: 1;
+}
+
+/* Disabled Button Styling */
+.go-button.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.floating-role-badge {
+    position: absolute;
+    top: 90px; /* Adjusted to move 10px down */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #084b57;
+    padding: 5px 10px; /* Reduced padding to make the badge narrower */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    color: #fbff02;
+    z-index: 1000;
+    max-width: 200px; /* Optional: Set a maximum width */
+    text-align: center; /* Center-align the text */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow if the text is too long */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}

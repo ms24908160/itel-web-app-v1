@@ -20,8 +20,7 @@ const HomePage: React.FC = () => {
                     <ul>
                         <li><strong>URL-Based Generation:</strong> ITEL analyzes your web application's structure to identify key UI elements and automatically creates comprehensive test scenarios.</li>
                         <li><strong>Screenshot-Based Generation:</strong> Leveraging OCR technology, ITEL converts screenshots into actionable test cases by mapping visual UI elements accurately.</li>
-                        <li><strong>Test Case Classification:</strong> Using predefined models to validate and calassify the </li>
-
+                        <li><strong>Test Case Classification:</strong> Using predefined models to validate and classify the test cases.</li>
                     </ul>
                 </section>
                 <section className="my-4 animated-section">

@@ -4,10 +4,15 @@ import '../styles/SignInSignUpPage.css';
 import { useNavigate } from 'react-router-dom';
 
 const SignInSignUpPage: React.FC = () => {
-    // State for Sign-Up and Sign-In forms
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // State for Sign-In form
+    const [signInEmail, setSignInEmail] = useState('');
+    const [signInPassword, setSignInPassword] = useState('');
+
+    // State for Sign-Up form
+    const [signUpEmail, setSignUpEmail] = useState('');
+    const [signUpPassword, setSignUpPassword] = useState('');
     const [role, setRole] = useState('Observer');
+
     const [message, setMessage] = useState('');
     const navigate = useNavigate(); // React Router's navigation hook
 
@@ -18,7 +23,7 @@ const SignInSignUpPage: React.FC = () => {
         try {
             const response = await axios.post(
                 'http://localhost:5000/signup', // Replace with your backend endpoint
-                { email, password, role }
+                { email: signUpEmail, password: signUpPassword, role }
             );
 
             // Store the JWT token in localStorage
@@ -47,7 +52,7 @@ const SignInSignUpPage: React.FC = () => {
         try {
             const response = await axios.post(
                 'http://localhost:5000/signin', // Replace with your backend endpoint
-                { email, password }
+                { email: signInEmail, password: signInPassword }
             );
 
             // Store the JWT token in localStorage
@@ -89,8 +94,8 @@ const SignInSignUpPage: React.FC = () => {
                                             type="email"
                                             className="form-control"
                                             id="signin-email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            value={signInEmail}
+                                            onChange={(e) => setSignInEmail(e.target.value)}
                                             placeholder="Enter your email"
                                             required
                                         />
@@ -101,8 +106,8 @@ const SignInSignUpPage: React.FC = () => {
                                             type="password"
                                             className="form-control"
                                             id="signin-password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            value={signInPassword}
+                                            onChange={(e) => setSignInPassword(e.target.value)}
                                             placeholder="Enter your password"
                                             required
                                         />
@@ -128,8 +133,8 @@ const SignInSignUpPage: React.FC = () => {
                                             type="email"
                                             className="form-control"
                                             id="signup-email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            value={signUpEmail}
+                                            onChange={(e) => setSignUpEmail(e.target.value)}
                                             placeholder="Enter your email"
                                             required
                                         />
@@ -140,8 +145,8 @@ const SignInSignUpPage: React.FC = () => {
                                             type="password"
                                             className="form-control"
                                             id="signup-password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            value={signUpPassword}
+                                            onChange={(e) => setSignUpPassword(e.target.value)}
                                             placeholder="Enter your password"
                                             required
                                         />

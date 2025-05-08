@@ -69,3 +69,32 @@ html, body {
 .option p {
     margin-bottom: 0;
 }
+.screenshot-based-generation-page {
+    padding: 20px;
+}
+
+.screenshot-based-generation-page header {
+    margin-bottom: 20px;
+}
+
+.screenshot-based-generation-page .form-control {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.screenshot-based-generation-page button {
+    display: block;
+    margin: 10px auto;
+}
+
+.screenshot-based-generation-page ul {
+    list-style-type: disc;
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 600px;
+}
+
+.screenshot-based-generation-page .text-danger {
+    color: #dc3545;
+    text-align: center;
+}

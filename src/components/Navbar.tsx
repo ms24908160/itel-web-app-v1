@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/navbar.css';
 import '../styles/fonts.css'; // Import the fonts.css file
-import { useLocation, Link } from 'react-router-dom';
-import accountIcon from '../assets/images/account.png'; // Import the account icon
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import accountIcon from '../assets/images/account.png'; // Default account icon
+import accountGreenIcon from '../assets/images/accountgreen.png'; // Green account icon for logged-in users
 import homeIcon from '../assets/images/home.png'; // Import the home icon
 import generateIcon from '../assets/images/generate.png'; // Import the generate icon
 import templateIcon from '../assets/images/template.png'; // Import the template icon
@@ -11,7 +12,15 @@ import knowledgeIcon from '../assets/images/knowledge.png'; // Import the knowle
 
 const Navbar: React.FC = () => {
     const location = useLocation();
+    const navigate = useNavigate(); // React Router's navigation hook
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+
+    useEffect(() => {
+        // Check if the user is logged in by verifying the presence of a token
+        const token = localStorage.getItem('token');
+        setIsLoggedIn(!!token); // Set to true if token exists, false otherwise
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,6 +36,13 @@ const Navbar: React.FC = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    // Handle Logout
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Clear the JWT token from localStorage
+        setIsLoggedIn(false); // Update login status
+        navigate('/signin-signup'); // Redirect to the SignInSignUpPage
+    };
 
     return (
         <>
@@ -53,11 +69,33 @@ const Navbar: React.FC = () => {
                         </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/signin-signup">
-                                <img src={accountIcon} alt="Account" style={{ height: '36px', width: '36px' }} />
-                            </Link>
-                        </li>
+                        {isLoggedIn ? (
+                            <>
+                                <li className="nav-item">
+                                    <button onClick={handleLogout} className="btn btn-danger navbar-logout-button">
+                                        Logout
+                                    </button>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/signin-signup">
+                                        <img
+                                            src={accountGreenIcon} // Use green icon if logged in
+                                            alt="Account"
+                                            style={{ height: '36px', width: '36px' }}
+                                        />
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
+                            <li className="nav-item">
+                                <button
+                                    onClick={() => navigate('/signin-signup')} // Redirect to SignInSignUpPage
+                                    className="btn btn-primary navbar-login-button"
+                                >
+                                    Login/Signup
+                                </button>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </nav>
@@ -89,7 +127,11 @@ const Navbar: React.FC = () => {
                 </ul>
                 <div className="side-nav-account">
                     <Link className="side-nav-link" to="/signin-signup">
-                        <img src={accountIcon} alt="Account" style={{ height: '36px', width: '36px' }} />
+                        <img
+                            src={isLoggedIn ? accountGreenIcon : accountIcon} // Use green icon if logged in
+                            alt="Account"
+                            style={{ height: '36px', width: '36px' }}
+                        />
                     </Link>
                 </div>
             </div>
