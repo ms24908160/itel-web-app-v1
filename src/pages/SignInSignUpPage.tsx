@@ -21,6 +21,9 @@ const SignInSignUpPage: React.FC = () => {
                 { email, password, role }
             );
 
+            // Store the JWT token in localStorage
+            localStorage.setItem('token', response.data.token);
+
             setMessage(`User registered successfully as ${response.data.role}`);
             console.log('Sign-up successful:', response.data);
 
@@ -46,6 +49,9 @@ const SignInSignUpPage: React.FC = () => {
                 'http://localhost:5000/signin', // Replace with your backend endpoint
                 { email, password }
             );
+
+            // Store the JWT token in localStorage
+            localStorage.setItem('token', response.data.token);
 
             setMessage('Login successful!');
             console.log('Sign-in successful:', response.data);

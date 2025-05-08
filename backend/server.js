@@ -3,6 +3,10 @@ const { Pool } = require('pg'); // PostgreSQL client
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const axios = require('axios'); // For fetching HTML content
+const { JSDOM } = require('jsdom'); // For DOM parsing
+const multer = require('multer'); // For handling file uploads
+const Tesseract = require('tesseract.js'); // OCR library
 
 const app = express();
 const PORT = 5000; // Backend server port
@@ -21,6 +25,9 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 app.use(cookieParser());
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+
+// Multer setup for file uploads
+const upload = multer({ storage: multer.memoryStorage() });
 
 // Sign-Up Route
 app.post('/signup', async (req, res) => {
@@ -76,43 +83,105 @@ app.post('/signin', async (req, res) => {
     }
 });
 
-// Account Endpoint
-app.get('/account', async (req, res) => {
-    const { email } = req.query;
+// URL Analysis Route
+app.post('/api/analyze-url', async (req, res) => {
+    const { url } = req.body;
+
+    if (!url) {
+        return res.status(400).json({ message: 'URL is required.' });
+    }
 
     try {
-        const user = await pool.query('SELECT email, role FROM users WHERE email = $1', [email]);
-        if (user.rows.length === 0) {
-            return res.status(404).json({ message: 'User not found' });
+        // Fetch the HTML content of the URL
+        const response = await axios.get(url);
+        const html = response.data;
+
+        // Parse the HTML using JSDOM
+        const dom = new JSDOM(html);
+        const document = dom.window.document;
+
+        // Generate test cases
+        const testCases = [];
+
+        // Check for the presence of key elements
+        if (document.querySelector('title')) {
+            testCases.push('Verify that the page has a title element.');
+        }
+        if (document.querySelector('meta[name="description"]')) {
+            testCases.push('Verify that the page has a meta description.');
+        }
+        if (document.querySelector('h1')) {
+            testCases.push('Verify that the page has at least one H1 element.');
+        }
+        if (document.querySelectorAll('a').length > 0) {
+            testCases.push('Verify that the page has links.');
+        }
+        if (document.querySelectorAll('img').length > 0) {
+            testCases.push('Verify that the page has images.');
+
+            // Additional test case: Check for alt attributes in images
+            const imagesWithoutAlt = Array.from(document.querySelectorAll('img')).filter(
+                (img) => !img.hasAttribute('alt')
+            );
+            if (imagesWithoutAlt.length > 0) {
+                testCases.push('Verify that all images have alt attributes.');
+            }
         }
 
-        res.json(user.rows[0]);
+        // Check for forms
+        if (document.querySelectorAll('form').length > 0) {
+            testCases.push('Verify that the page has forms.');
+        }
+
+        // Check for buttons
+        if (document.querySelectorAll('button').length > 0) {
+            testCases.push('Verify that the page has buttons.');
+        }
+
+        // Check for input fields
+        if (document.querySelectorAll('input').length > 0) {
+            testCases.push('Verify that the page has input fields.');
+        }
+
+        // Return the generated test cases
+        res.json({ testCases });
     } catch (error) {
-        console.error('Error fetching account details:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error('Error analyzing URL:', error.message);
+        res.status(500).json({ message: 'Failed to analyze the URL.' });
     }
 });
 
-// Logout Endpoint
-app.post('/logout', (req, res) => {
-    res.clearCookie('token', { httpOnly: true, sameSite: 'Strict' });
-    res.json({ message: 'Logged out successfully' });
-});
-
-// Check User Endpoint (For Debugging)
-app.get('/check-user', async (req, res) => {
-    const { email } = req.query;
+// Screenshot Analysis Route
+app.post('/api/analyze-screenshot', upload.single('image'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'No image uploaded.' });
+    }
 
     try {
-        const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-        if (user.rows.length === 0) {
-            return res.status(404).json({ message: 'User not found' });
+        // Perform OCR on the uploaded image
+        const { data: { text } } = await Tesseract.recognize(req.file.buffer, 'eng');
+
+        // Generate test cases based on the extracted text
+        const testCases = [];
+        if (text.includes('Login')) {
+            testCases.push('Verify that the login functionality works as expected.');
+        }
+        if (text.includes('Submit')) {
+            testCases.push('Verify that the submit button triggers the correct action.');
+        }
+        if (text.includes('Error')) {
+            testCases.push('Verify that error messages are displayed correctly.');
         }
 
-        res.status(200).json({ message: 'User exists', user: user.rows[0] });
+        // Add a generic test case if no specific keywords are found
+        if (testCases.length === 0) {
+            testCases.push('Verify that the UI elements are displayed correctly.');
+        }
+
+        res.json({ testCases });
     } catch (error) {
-        console.error('Error checking user:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error('Error analyzing screenshot:', error);
+        res.status(500).json({ message: 'Failed to analyze the screenshot.' });
     }
 });
 
