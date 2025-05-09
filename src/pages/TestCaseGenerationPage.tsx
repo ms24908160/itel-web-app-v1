@@ -48,42 +48,29 @@ const TestCaseGenerationPage: React.FC = () => {
                 <section className="my-4">
                     <h2>Choose a Generation Method</h2>
                     <div className="generation-options">
+                        {/* Option 1: URL-Based Generation (Accessible to all users) */}
                         <div className="option">
                             <div className="option-content">
                                 <h3>URL-Based Generation</h3>
                                 <p>Analyze your web application's structure to identify key UI elements and automatically create comprehensive test scenarios.</p>
                             </div>
-                            {role === 'Engineer' || role === 'Administrator' ? (
-                                <a href="/url-based-generation" className="go-button">
-                                    Go →
-                                </a>
-                            ) : (
-                                <button
-                                    className="go-button disabled"
-                                    onClick={handleRestrictedAccess}
-                                >
-                                    Restricted
-                                </button>
-                            )}
+                            <a href="/url-based-generation" className="go-button">
+                                Go →
+                            </a>
                         </div>
+
+                        {/* Option 2: Screenshot-Based Generation (Accessible to all users) */}
                         <div className="option">
                             <div className="option-content">
                                 <h3>Screenshot-Based Generation</h3>
                                 <p>Leverage OCR technology to convert screenshots into actionable test cases by mapping visual UI elements accurately.</p>
                             </div>
-                            {role === 'Engineer' || role === 'Administrator' ? (
-                                <a href="/screenshot-based-generation" className="go-button">
-                                    Go →
-                                </a>
-                            ) : (
-                                <button
-                                    className="go-button disabled"
-                                    onClick={handleRestrictedAccess}
-                                >
-                                    Restricted
-                                </button>
-                            )}
+                            <a href="/screenshot-based-generation" className="go-button">
+                                Go →
+                            </a>
                         </div>
+
+                        {/* Option 3: Test Case Classification (Restricted to Engineer and Administrator roles) */}
                         <div className="option">
                             <div className="option-content">
                                 <h3>Test Case Classification</h3>

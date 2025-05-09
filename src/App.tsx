@@ -8,6 +8,7 @@ import SignInSignUpPage from './pages/SignInSignUpPage';
 import URLBasedGenerationPage from './pages/URLBasedGenerationPage';
 import ScreenshotBasedGenerationPage from './pages/ScreenshotBasedGenerationPage';
 import TestCaseClassificationPage from './pages/TestCaseClassificationPage';
+import ManagementPage from './pages/ManagementPage' // Ensure the file exists at this path or correct the path if necessary
 import './styles/App.css';
 
 const App: React.FC = () => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/url-based-generation" element={<URLBasedGenerationPage />} />
           <Route path="/screenshot-based-generation" element={<ScreenshotBasedGenerationPage />} />
           <Route path="/test-case-classification" element={<TestCaseClassificationPage />} />
+          <Route path="/management" element={<ManagementPage />} />
         </Routes>
       </div>
     </Router>

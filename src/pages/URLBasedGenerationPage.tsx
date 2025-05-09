@@ -23,7 +23,7 @@ const URLBasedGenerationPage: React.FC = () => {
             const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
             setRole(decodedToken.role);
 
-            if (decodedToken.role !== 'Engineer' && decodedToken.role !== 'Administrator') {
+            if (decodedToken.role !== 'Engineer' && decodedToken.role !== 'Administrator'&& decodedToken.role !== 'Observer') {
                 alert('Access denied. Only Engineers and Administrators can access this page.');
                 navigate('/'); // Redirect to home page or another appropriate page
             }

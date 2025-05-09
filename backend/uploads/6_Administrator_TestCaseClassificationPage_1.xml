@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testSet>
+  <id>6_Administrator_TestCaseClassificationPage_1</id>
+  <userId>6</userId>
+  <userRole>Administrator</userRole>
+  <pageTag>TestCaseClassificationPage</pageTag>
+  <testCases>
+    <testCase>
+      <description>Test Case 1: Verify that users are able to upload the correct type of file format.</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Test Case 2: Verify that the application does not allow users to upload malicious file formats.</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Test Case 3: Verify that the application displays an error message when the maximum file size is exceeded.</description>
+      <category>Non-Functional</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Test Case 4: Verify that users are able to upload the correct type of file format.</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Test Case 5: Verify that the application does not allow users to upload malicious file formats.</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Test Case 6: Verify that the application displays an error message when the maximum file size is exceeded.</description>
+      <category>Non-Functional</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+</testSet>

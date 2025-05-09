@@ -98,3 +98,8 @@ html, body {
     color: #dc3545;
     text-align: center;
 }
+.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    opacity: 0.6;
+}

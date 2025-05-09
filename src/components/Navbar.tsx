@@ -9,6 +9,7 @@ import homeIcon from '../assets/images/home.png'; // Import the home icon
 import generateIcon from '../assets/images/generate.png'; // Import the generate icon
 import templateIcon from '../assets/images/template.png'; // Import the template icon
 import knowledgeIcon from '../assets/images/knowledge.png'; // Import the knowledge icon
+import managementIcon from '../assets/images/management.png'; // Import the management icon
 
 const Navbar: React.FC = () => {
     const location = useLocation();
@@ -67,6 +68,10 @@ const Navbar: React.FC = () => {
                         <li className={`nav-item ${location.pathname === '/quality-assurance-knowledge' ? 'active' : ''}`}>
                             <Link className="nav-link" to="/quality-assurance-knowledge">Quality Assurance Knowledge</Link>
                         </li>
+                        {/* Management option visible to all users */}
+                        <li className={`nav-item ${location.pathname === '/management' ? 'active' : ''}`}>
+                            <Link className="nav-link" to="/management">Management</Link>
+                        </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         {isLoggedIn ? (
@@ -122,6 +127,12 @@ const Navbar: React.FC = () => {
                     <li className={`side-nav-item ${location.pathname === '/quality-assurance-knowledge' ? 'active' : ''}`}>
                         <Link className="side-nav-link" to="/quality-assurance-knowledge">
                             <img src={knowledgeIcon} alt="Quality Assurance Knowledge" />
+                        </Link>
+                    </li>
+                    {/* Management option visible to all users */}
+                    <li className={`side-nav-item ${location.pathname === '/management' ? 'active' : ''}`}>
+                        <Link className="side-nav-link" to="/management">
+                            <img src={managementIcon} alt="Management" />
                         </Link>
                     </li>
                 </ul>
