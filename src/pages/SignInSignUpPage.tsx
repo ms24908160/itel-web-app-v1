@@ -7,13 +7,14 @@ const SignInSignUpPage: React.FC = () => {
     // State for Sign-In form
     const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
+    const [signInMessage, setSignInMessage] = useState(''); // Separate message for Sign In
 
     // State for Sign-Up form
     const [signUpEmail, setSignUpEmail] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
     const [role, setRole] = useState('Observer');
+    const [signUpMessage, setSignUpMessage] = useState(''); // Separate message for Sign Up
 
-    const [message, setMessage] = useState('');
     const navigate = useNavigate(); // React Router's navigation hook
 
     // Handle Sign-Up
@@ -29,7 +30,7 @@ const SignInSignUpPage: React.FC = () => {
             // Store the JWT token in localStorage
             localStorage.setItem('token', response.data.token);
 
-            setMessage(`User registered successfully as ${response.data.role}`);
+            setSignUpMessage(`User registered successfully as ${response.data.role}`);
             console.log('Sign-up successful:', response.data);
 
             // Redirect to HomePage after a short delay
@@ -38,9 +39,9 @@ const SignInSignUpPage: React.FC = () => {
             }, 2000);
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                setMessage(error.response?.data?.message || 'An error occurred');
+                setSignUpMessage(error.response?.data?.message || 'An error occurred');
             } else {
-                setMessage('An unexpected error occurred');
+                setSignUpMessage('An unexpected error occurred');
             }
         }
     };
@@ -58,7 +59,7 @@ const SignInSignUpPage: React.FC = () => {
             // Store the JWT token in localStorage
             localStorage.setItem('token', response.data.token);
 
-            setMessage('Login successful!');
+            setSignInMessage('Login successful!');
             console.log('Sign-in successful:', response.data);
 
             // Redirect to HomePage after a short delay
@@ -67,9 +68,9 @@ const SignInSignUpPage: React.FC = () => {
             }, 2000);
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                setMessage(error.response?.data?.message || 'An error occurred');
+                setSignInMessage(error.response?.data?.message || 'An error occurred');
             } else {
-                setMessage('An unexpected error occurred');
+                setSignInMessage('An unexpected error occurred');
             }
         }
     };
@@ -116,7 +117,7 @@ const SignInSignUpPage: React.FC = () => {
                                         Sign In
                                     </button>
                                 </form>
-                                {message && <p className="mt-3 text-center">{message}</p>}
+                                {signInMessage && <p className="mt-3 text-center">{signInMessage}</p>}
                             </div>
                         </div>
                     </div>
@@ -168,7 +169,7 @@ const SignInSignUpPage: React.FC = () => {
                                         Sign Up
                                     </button>
                                 </form>
-                                {message && <p className="mt-3 text-center">{message}</p>}
+                                {signUpMessage && <p className="mt-3 text-center">{signUpMessage}</p>}
                             </div>
                         </div>
                     </div>

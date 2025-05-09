@@ -6,7 +6,7 @@ import '../styles/testCaseGenerationPage.css'; // Import the specific CSS file f
 const TestCaseGenerationPage: React.FC = () => {
     const [role, setRole] = useState<string | null>(null);
 
-    // Simulate fetching the user's role (e.g., from a JWT or API)
+   
     useEffect(() => {
         const fetchUserRole = async () => {
             const token = localStorage.getItem('token');

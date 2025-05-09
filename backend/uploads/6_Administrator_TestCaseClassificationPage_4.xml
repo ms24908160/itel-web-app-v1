@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testSet>
+  <id>6_Administrator_TestCaseClassificationPage_4</id>
+  <userId>6</userId>
+  <userRole>Administrator</userRole>
+  <pageTag>TestCaseClassificationPage</pageTag>
+  <testCases>
+    <testCase>
+      <description>User can register a new account with valid details</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>sing multiple criteria</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Login with valid credentials</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Login page loads within 2 seconds</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>All input fields have proper labels and tooltips</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Check layout on Chrome, Firefox, Safari, and Edge</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+</testSet>

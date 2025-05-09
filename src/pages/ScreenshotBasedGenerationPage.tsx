@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/global.css'; // Import global styles
 import BackButton from '../components/BackButton';
 import withFooter from '../components/withFooter';
+import { Dropdown, DropdownButton } from 'react-bootstrap'; // Install react-bootstrap if not already installed
 
 const ScreenshotBasedGenerationPage: React.FC = () => {
     const [image, setImage] = useState<File | null>(null);
@@ -13,8 +14,8 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
             const file = event.target.files[0];
-            if (!file.type.startsWith('image/')) {
-                setError('Invalid file type. Please upload an image.');
+            if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
+                setError('Invalid file type. Please upload a PNG or JPEG image.');
                 return;
             }
             if (file.size > 5 * 1024 * 1024) { // 5MB limit
@@ -58,8 +59,14 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Failed to analyze the screenshot.');
+                if (response.status === 401) {
+                    throw new Error('Unauthorized. Please log in again.');
+                } else if (response.status === 500) {
+                    throw new Error('Server error. Please try again later.');
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Failed to analyze the screenshot.');
+                }
             }
 
             const data = await response.json();
@@ -73,6 +80,50 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
         } finally {
             setLoading(false);
         }
+    };
+
+    // Function to handle file download
+    const downloadFile = (format: string) => {
+        if (testCases.length === 0) {
+            setError('No test cases available to download.');
+            return;
+        }
+
+        let content = '';
+        let mimeType = '';
+        let fileExtension = '';
+
+        switch (format) {
+            case 'txt':
+                content = testCases.join('\n');
+                mimeType = 'text/plain';
+                fileExtension = 'txt';
+                break;
+            case 'csv':
+                content = testCases.map((testCase, index) => `${index + 1},${testCase}`).join('\n');
+                mimeType = 'text/csv';
+                fileExtension = 'csv';
+                break;
+            case 'json':
+                content = JSON.stringify(testCases, null, 2);
+                mimeType = 'application/json';
+                fileExtension = 'json';
+                break;
+            case 'xml':
+                content = `<testCases>${testCases.map(tc => `<testCase>${tc}</testCase>`).join('')}</testCases>`;
+                mimeType = 'application/xml';
+                fileExtension = 'xml';
+                break;
+            default:
+                setError('Unsupported file format.');
+                return;
+        }
+
+        const blob = new Blob([content], { type: mimeType });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `test_cases.${fileExtension}`;
+        link.click();
     };
 
     return (
@@ -91,6 +142,22 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
                         className="form-control my-2"
                         aria-label="Upload a screenshot for analysis"
                     />
+                    {image && (
+                        <div className="image-preview my-3 text-center">
+                            <h3>Preview:</h3>
+                            <img
+                                src={URL.createObjectURL(image)}
+                                alt="Uploaded Screenshot Preview"
+                                style={{
+                                    maxWidth: '100%',
+                                    maxHeight: '300px',
+                                    border: '1px solid #ccc',
+                                    display: 'block',
+                                    margin: '0 auto', // Center the image horizontally
+                                }}
+                            />
+                        </div>
+                    )}
                     <button
                         className="btn btn-primary mt-2"
                         onClick={handleAnalyze}
@@ -102,8 +169,21 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
                     {error && (
                         <div className="mt-3">
                             <p className="text-danger">{error}</p>
-                            <button className="btn btn-secondary" onClick={handleAnalyze}>
+                            <button
+                                className="btn btn-secondary me-2"
+                                onClick={handleAnalyze}
+                            >
                                 Retry
+                            </button>
+                            <button
+                                className="btn btn-outline-danger"
+                                onClick={() => {
+                                    setImage(null);
+                                    setError('');
+                                    setTestCases([]);
+                                }}
+                            >
+                                Clear
                             </button>
                         </div>
                     )}
@@ -111,11 +191,32 @@ const ScreenshotBasedGenerationPage: React.FC = () => {
                 <section className="my-4">
                     <h2>Generated Test Cases</h2>
                     {testCases.length > 0 ? (
-                        <ul>
-                            {testCases.map((testCase, index) => (
-                                <li key={index}>{testCase}</li>
-                            ))}
-                        </ul>
+                        <>
+                            <table className="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Test Case</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {testCases.map((testCase, index) => (
+                                        <tr key={index}>
+                                            <td>{index + 1}</td>
+                                            <td>{testCase}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <DropdownButton id="dropdown-download-button"
+                                title="Download Test Cases"
+                                className="btn btn-success mt-3">
+                                <Dropdown.Item onClick={() => downloadFile('txt')}>Download as TXT</Dropdown.Item>
+                                <Dropdown.Item onClick={() => downloadFile('csv')}>Download as CSV</Dropdown.Item>
+                                <Dropdown.Item onClick={() => downloadFile('json')}>Download as JSON</Dropdown.Item>
+                                <Dropdown.Item onClick={() => downloadFile('xml')}>Download as XML</Dropdown.Item>
+                            </DropdownButton>
+                        </>
                     ) : (
                         <p>{error ? error : 'No test cases generated. Please try with a different screenshot.'}</p>
                     )}

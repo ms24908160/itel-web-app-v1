@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testSet>
+  <id>6_Administrator_TestCaseClassificationPage_2</id>
+  <userId>6</userId>
+  <userRole>Administrator</userRole>
+  <pageTag>TestCaseClassificationPage</pageTag>
+  <testCases>
+    <testCase>
+      <description>User can register a new account with valid details</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>User receives a confirmation email after successful registration</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>User can add items to cart and proceed to checkout</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>User can search and filter items using multiple criteria</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Login with valid credentials</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Login with invalid password</description>
+      <category>Functional</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Submit form with all required fields filled</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Submit form with empty required fields</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Trigger password reset via "Forgot Password"</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Login page loads within 2 seconds</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>All input fields have proper labels and tooltips</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Check layout on Chrome, Firefox, Safari, and Edge</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Password is masked during entry and securely stored</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Screen reader reads form labels and buttons</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Numeric input in "Name" field triggers error</description>
+      <category>Uncategorized</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Reject oversized file upload</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Special characters are escaped in text fields</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Profile update reflects immediately</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Admin sees extra dashboard options</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+</testSet>
