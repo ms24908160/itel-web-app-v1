@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    
 }
 
 #root {
@@ -102,4 +103,76 @@ html, body {
     filter: blur(5px);
     pointer-events: none;
     opacity: 0.6;
+}
+
+/* ManagementPage-specific styles */
+.management-page {
+    background-color: #d2f0e4; /* Light gray background */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+}
+
+.management-page .files-panel {
+    width: 25%;
+    border-right: 3px solid #000000;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.management-page .content-panel {
+    width: 75%;
+    padding: 15px;
+}
+
+.management-page .table {
+    background-color: #50b67e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.management-page .btn {
+    margin-right: 10px;
+}
+
+.management-page .text-danger {
+    color: #dc3545;
+}
+
+.management-page .blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Background styling for URLBasedGenerationPage */
+.url-based-generation-page {
+    background-color: #d2f0e4; /* Light blue background */
+    min-height: 100vh; /* Ensure the background spans the full viewport height */
+    padding: 20px; /* Add padding for better spacing */
+    color: #333; /* Optional: Set text color for better contrast */
+}
+
+.screenshot-based-generation-page{
+    background-color: #d2f0e4; /* Light blue background */
+    min-height: 75vh; /* Ensure the background spans the full viewport height */
+    padding: 20px; /* Add padding for better spacing */
+    color: #333; /* Optional: Set text color for better contrast */
+}
+.test-case-classification-page {
+    background-color: #d2f0e4; /* Light blue background */
+    min-height: 75vh; /* Ensure the background spans the full viewport height */
+    padding: 20px; /* Add padding for better spacing */
+    color: #333; /* Optional: Set text color for better contrast */
+}
+.test-case-templates-page {
+    background-color: #e0f0e9; /* Light blue background */
+    min-height: 75vh; /* Ensure the background spans the full viewport height */
+    padding: 20px; /* Add padding for better spacing */
+    color: #333; /* Optional: Set text color for better contrast */
+}
+.quality-assurance-knowledge-page {
+    background-color: #e0f0e9; /* Light blue background */
+    min-height: 75vh; /* Ensure the background spans the full viewport height */
+    padding: 20px; /* Add padding for better spacing */
+    color: #333; /* Optional: Set text color for better contrast */
 }

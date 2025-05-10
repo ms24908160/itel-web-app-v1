@@ -50,7 +50,7 @@ const authenticateToken = (req, res, next) => {
         req.user = decoded; // Attach decoded token data to the request object
         next();
     } catch (error) {
-        res.status(403).json({ message: 'Invalid or expired token.' });
+        res.status(403).json({ message: 'Invalid or expired token. Please Re Login ' });
     }
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Dropdown, DropdownButton } from 'react-bootstrap'; // Import React-Bootstrap components
 import BackButton from '../components/BackButton';
 import withFooter from '../components/withFooter';
 import '../styles/global.css'; // Import the global CSS file
@@ -13,7 +14,7 @@ const URLBasedGenerationPage: React.FC = () => {
 
     // Check user role and redirect if unauthorized
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token: string | null = localStorage.getItem('token');
         if (!token) {
             navigate('/signin-signup'); // Redirect to login if not logged in
             return;
@@ -23,7 +24,7 @@ const URLBasedGenerationPage: React.FC = () => {
             const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
             setRole(decodedToken.role);
 
-            if (decodedToken.role !== 'Engineer' && decodedToken.role !== 'Administrator'&& decodedToken.role !== 'Observer') {
+            if (decodedToken.role !== 'Engineer' && decodedToken.role !== 'Administrator' && decodedToken.role !== 'Observer') {
                 alert('Access denied. Only Engineers and Administrators can access this page.');
                 navigate('/'); // Redirect to home page or another appropriate page
             }
@@ -74,11 +75,51 @@ const URLBasedGenerationPage: React.FC = () => {
         }
     };
 
+    // Export test cases in the selected format
+    const exportTestCases = (format: string) => {
+        if (testCases.length === 0) {
+            alert('No test cases available to export.');
+            return;
+        }
+
+        let content = '';
+        let mimeType = '';
+        let fileExtension = '';
+
+        if (format === 'csv') {
+            content = 'Test Case\n';
+            content += testCases.join('\n');
+            mimeType = 'text/csv';
+            fileExtension = 'csv';
+        } else if (format === 'txt') {
+            content = testCases.join('\n');
+            mimeType = 'text/plain';
+            fileExtension = 'txt';
+        } else if (format === 'json') {
+            content = JSON.stringify(testCases, null, 2); // Pretty JSON format
+            mimeType = 'application/json';
+            fileExtension = 'json';
+        } else if (format === 'xml') {
+            content = '<?xml version="1.0" encoding="UTF-8"?>\n<testCases>\n';
+            content += testCases.map((testCase) => `  <testCase>${testCase}</testCase>`).join('\n');
+            content += '\n</testCases>';
+            mimeType = 'application/xml';
+            fileExtension = 'xml';
+        }
+
+        const blob = new Blob([content], { type: mimeType });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `test-cases.${fileExtension}`;
+        link.click();
+        URL.revokeObjectURL(link.href); // Clean up the URL object
+    };
+
     return (
         <div className="url-based-generation-page">
             <header className="text-center my-4">
                 <h1>URL-Based Generation</h1>
-                <p>Analyze your web application's structure to identify key UI elements and automatically create comprehensive test scenarios.</p>
+                <p>Analyze your web application's structure to identify key UI elements and automatically create base test scenarios.</p>
             </header>
             <main className="container">
                 <section className="my-4">
@@ -100,11 +141,23 @@ const URLBasedGenerationPage: React.FC = () => {
                 <section className="my-4">
                     <h2>Generated Test Cases</h2>
                     {testCases.length > 0 ? (
-                        <ul>
-                            {testCases.map((testCase, index) => (
-                                <li key={index}>{testCase}</li>
-                            ))}
-                        </ul>
+                        <>
+                            <ul>
+                                {testCases.map((testCase, index) => (
+                                    <li key={index}>{testCase}</li>
+                                ))}
+                            </ul>
+                            <DropdownButton
+                                id="dropdown-basic-button"
+                                title="Export Test Cases"
+                                className="mt-3"
+                            >
+                                <Dropdown.Item onClick={() => exportTestCases('csv')}>Export as CSV</Dropdown.Item>
+                                <Dropdown.Item onClick={() => exportTestCases('txt')}>Export as TXT</Dropdown.Item>
+                                <Dropdown.Item onClick={() => exportTestCases('json')}>Export as JSON</Dropdown.Item>
+                                <Dropdown.Item onClick={() => exportTestCases('xml')}>Export as XML</Dropdown.Item>
+                            </DropdownButton>
+                        </>
                     ) : (
                         <p>No test cases generated yet.</p>
                     )}

@@ -1,65 +1,124 @@
+/* Page Layout */
 .test-case-generation-page {
     padding: 20px;
+    background-color: #d2f0e4; /* Light gray background */
+    min-height: 100vh; /* Full viewport height */
+    font-family: 'Arial', sans-serif;
 }
 
+/* Header Styling */
+.test-case-generation-page header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.test-case-generation-page header h1 {
+    font-size: 2.5rem;
+    color: #343a40; /* Dark gray */
+    margin-bottom: 10px;
+}
+
+.test-case-generation-page header p {
+    font-size: 1.2rem;
+    color: #6c757d; /* Light gray */
+}
+
+/* Generation Options Section */
 .generation-options {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    /*display: flex; /* Use Flexbox to arrange items horizontally */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Add spacing between panels */
+    /*justify-content: center; /* Center the panels horizontally */
+    align-items: flex-start; /* Align panels to the top */
+    width: 100%; /* Ensure the container spans the full width */
+    max-width: 500px; /* Optional: Limit the maximum width */
+    height: 100%; /* Full height for the container */
+    max-height: 100%; /* Optional: Limit the maximum height */
+    margin: 0 auto; /* Center the container */
 }
 
-.option {
-    background-color: #f8f9fa;
+/* Option Panel */
+/* Option Panel */
+.my-3-options {
+    padding: 10px;
+    display: flex;
+    margin-top: 20px; /* Add top margin to the option panels */
+    margin-bottom: 20px; /* Add bottom margin to the option panels */
+    gap: 30px; /* Add spacing between child elements */
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start; /* Align content to the top */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover transition */
+}
+
+
+/* Option Cards */
+.select_option {
+    
+    background-color: #0c5e50; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the container spans the full width */
+    max-width: 500px; /* Optional: Limit the maximum width */
+    height: 250px; /* Full height for the container */
+    max-height: 100%; /* Optional: Limit the maximum height */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color */
-    transition: background-color 0.3s ease; /* Add transition for background color */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.option:hover {
-    background-color: #d4edda; /* Light green background on hover */
+.select_option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.option-content {
-    flex: 1; /* Take up remaining space */
-    text-align: left; /* Align text to the left */
+/* Option Content */
+.option-content h3 {
+    padding-left: 20P;
+    font-size: 1.5rem;
+    color: #cfe989; /* Bootstrap primary color */
+    margin-bottom: 10px;
+}
+.option-content h3 :hover {
+    font-size: 1.5rem;
+    color: #ffd900; /* Bootstrap primary color */
+    margin-bottom: 10px;
 }
 
+.option-content p {
+    font-size: 1rem;
+    color: #ffffff; /* Light gray */
+    margin-bottom: 20px;
+}
+
+/* Go Button */
 .go-button {
-    background-color: #004d4d;
-    color: #ffffff;
+    display: inline-block;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    text-decoration: none;
     padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and transform */
-    margin-left: 20px; /* Add some space between the text and the button */
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .go-button:hover {
-    background-color: #ffd700; /* Gold background on hover */
-    transform: scale(1.1); /* Scale up the button */
+    background-color: #eaee0b; /* Darker blue */
+    transform: scale(1.05);
 }
 
-.option h3, .option p {
-    margin: 0;
-    text-decoration: none; /* Remove underline from text */
-    color: inherit; /* Inherit text color */
+.go-button.disabled {
+    background-color: #ccc; /* Disabled gray */
+    color: #666;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
-.option:hover h3, .option:hover p {
-    text-decoration: none; /* Ensure no underline on hover */
-    color: inherit; /* Ensure text color remains consistent on hover */
-}
 /* Floating Role Badge */
 .floating-role-badge {
     position: fixed;
-    top: 10px;
+    top: 90px;
     right: 10px;
     background-color: #007bff;
     color: white;
@@ -77,30 +136,14 @@
     opacity: 1;
 }
 
-/* Disabled Button Styling */
-.go-button.disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .generation-options {
+        flex-direction: column; /* Stack panels vertically on smaller screens */
+        align-items: center;
+    }
 
-.floating-role-badge {
-    position: absolute;
-    top: 90px; /* Adjusted to move 10px down */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #084b57;
-    padding: 5px 10px; /* Reduced padding to make the badge narrower */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    font-weight: bold;
-    color: #fbff02;
-    z-index: 1000;
-    max-width: 200px; /* Optional: Set a maximum width */
-    text-align: center; /* Center-align the text */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflow if the text is too long */
-    text-overflow: ellipsis; /* Add ellipsis for long text */
+    .option {
+        width: 100%; /* Full width for smaller screens */
+    }
 }

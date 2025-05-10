@@ -4,6 +4,7 @@ import '../styles/global.css';
 import BackButton from '../components/BackButton';
 import withFooter from '../components/withFooter';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import '../styles/global.css';
 
 const ManagementPage: React.FC = () => {
     const [userFiles, setUserFiles] = useState<any[]>([]);
@@ -208,6 +209,7 @@ const ManagementPage: React.FC = () => {
 
     return (
         <div className={`management-page d-flex ${role === 'Observer' ? 'blurred' : ''}`}>
+            
             {/* Translucent overlay for Observer role */}
             {role === 'Observer' && (
                 <div
