@@ -208,14 +208,14 @@ const ManagementPage: React.FC = () => {
     }, [pageTag]);
 
     return (
-        <div className={`management-page d-flex ${role === 'Observer' ? 'blurred' : ''}`}>
+        <div className={`management-page d-flex `}>
             
             {/* Translucent overlay for Observer role */}
             {role === 'Observer' && (
                 <div
                     className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center"
                     style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
                         zIndex: 10,
                     }}
                 >

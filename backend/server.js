@@ -97,7 +97,6 @@ app.post('/signup', async (req, res) => {
 // New Route: Screenshot Analysis (Protected)
 const sharp = require('sharp');
 
-
 app.post('/api/analyze-screenshot',
     authenticateToken,
     authorizeRole(['Engineer', 'Administrator']),
