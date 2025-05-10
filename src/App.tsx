@@ -8,7 +8,7 @@ import SignInSignUpPage from './pages/SignInSignUpPage';
 import URLBasedGenerationPage from './pages/URLBasedGenerationPage';
 import ScreenshotBasedGenerationPage from './pages/ScreenshotBasedGenerationPage';
 import TestCaseClassificationPage from './pages/TestCaseClassificationPage';
-import ManagementPage from './pages/ManagementPage' // Ensure the file exists at this path or correct the path if necessary
+import ManagementPage from './pages/ManagementPage'
 import './styles/App.css';
 
 const App: React.FC = () => {

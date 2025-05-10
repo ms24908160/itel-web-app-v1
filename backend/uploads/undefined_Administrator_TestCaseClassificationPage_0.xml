@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testSet>
+  <id>undefined_Administrator_TestCaseClassificationPage_0</id>
+  <userId/>
+  <userRole>Administrator</userRole>
+  <pageTag>TestCaseClassificationPage</pageTag>
+  <testCases>
+    <testCase>
+      <description>Verify that the submit button triggers the correct action.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify the "Submit" button is clickable and performs the expected action.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the "Submit" button changes appearance when hovered over.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify the "Cancel" button is clickable and performs the expected action.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the "Cancel" button changes appearance when hovered over.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify the input field with placeholder "Enter your email" accepts valid input.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the input field with placeholder "Enter your email" displays an error for invalid input.</description>
+      <category>Uncategorized</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify the input field with placeholder "Enter your password" accepts valid input.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the input field with placeholder "Enter your password" displays an error for invalid input.</description>
+      <category>Uncategorized</category>
+      <type>Negative</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the checkbox labeled "I agree to the terms" can be checked and unchecked.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the checkbox labeled "I agree to the terms" is required before form submission.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the dropdown menu with options "Option 1, Option 2" allows selection.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the dropdown menu closes when an option is selected.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the link labeled "Forgot Password?" redirects to the correct page.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the link labeled "Forgot Password?" opens in a new tab (if applicable).</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the image with alt text "Company Logo" loads correctly.</description>
+      <category>Non-Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the image with alt text "Company Logo" is responsive and adapts to different screen sizes.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the form with ID "loginForm" has a submit button.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the form with ID "loginForm" validates all required fields before submission.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that all UI elements are accessible via keyboard navigation.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the page uses ARIA roles for accessibility.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that all images have meaningful alt attributes for screen readers.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the layout is responsive and adapts to different screen sizes.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the page maintains proper alignment and spacing across all devices.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that the page includes a viewport meta tag for responsive design.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that all forms have proper validation attributes.</description>
+      <category>Functional</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+  <testCases>
+    <testCase>
+      <description>Verify that all links have valid href attributes and do not lead to broken pages.</description>
+      <category>Uncategorized</category>
+      <type>Positive</type>
+    </testCase>
+  </testCases>
+</testSet>
